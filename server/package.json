@@ -1,0 +1,41 @@
+{
+  "name": "server",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "init": "sudo docker run --name keepassxc -d \\\n -v /tmp/.X11-unix:/tmp/.X11-unix \\\n -v /etc/machine-id:/etc/machine-id:ro \\\n -v /usr/share/X11/xkb:/usr/share/X11/xkb/:ro \\\n -v $HOME/.config/keepassxc:/root/.config/keepassxc \\\n -e DISPLAY=unix$DISPLAY \\\n jess/keepassxc\n",
+    "start": "sudo docker start keepassxc",
+    "stop": "sudo docker stop keepassxc",
+    "delete": "sudo docker rm keepassxc",
+    "start:dev": "nest start --watch",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
+  },
+  "dependencies": {
+    "@nestjs/common": "^9.0.0",
+    "@nestjs/core": "^9.0.0",
+    "@nestjs/platform-express": "^9.0.0",
+    "dotenv": "^16.3.1",
+    "kdbxweb": "^2.1.1",
+    "random-hash": "^4.0.1",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^9.0.0",
+    "@nestjs/schematics": "^9.0.0",
+    "@types/express": "^4.17.13",
+    "@types/node": "18.16.12",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.3.2",
+    "ts-loader": "^9.2.3",
+    "ts-node": "^10.0.0",
+    "tsconfig-paths": "4.2.0",
+    "typescript": "^5.0.0"
+  }
+}
